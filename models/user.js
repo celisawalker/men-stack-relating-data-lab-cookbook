@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-// user.js
-
 const foodSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -26,7 +24,6 @@ const foodSchema = new mongoose.Schema({
     required: true
   }
 });
-
 
 const userSchema = mongoose.Schema({
   username: {

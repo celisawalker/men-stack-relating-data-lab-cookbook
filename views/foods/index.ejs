@@ -10,11 +10,18 @@
     <h1>Welcome to My Pantry</h1>
     <a href="/users/<%=user._id%>/foods/new">Add New Item</a>
     <ul>
-        <% pantry.forEach(item => { %>
-        <li>
-                <%= item.name %>
-        </li>
-        <% }); %>
+        <!-- TODO: use conditional logic to display message if pantry is empty -->
+         <% if(pantry.length === 0){ %>
+            <p>There are no items in this pantry.</p>
+         <% } else { %>
+            <% pantry.forEach(item => { %>
+                <li>
+                    <a href="/users/<%=user._id%>/foods/<%=item._id%>">
+                        <%= item.name %>
+                    </a>
+                </li>
+                <% }); %>
+         <% } %>
     </ul>
 </body>
 </html>

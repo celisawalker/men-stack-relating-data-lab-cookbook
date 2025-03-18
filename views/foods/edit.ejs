@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= pantry.name %></title>
+</head>
+<body>
+    <%- include("../partials/_navbar.ejs") %>
+    <h1><%= pantry.name %> </h1>
+    <form action="/users/<%= user._id %>/foods/<%= pantry._id %>?_method=PUT" method="POST">
+        <label for="name">Item Name:</label>
+        <input value="<%= pantry.name %>" type="text" name="name" id="name">
+
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="vegetable" <%= pantry.category === "vegetable" ? "selected" : "" %> >Vegetable</option>
+            <option value="fruit" <%= pantry.category === "fruit" ? "selected" : "" %> >Fruit</option>
+            <option value="meat" <%= pantry.category === "meat" ? "selected" : "" %> >Meat</option>
+            <option value="dairy" <%= pantry.category === "dairy" ? "selected" : "" %> >Dairy</option>
+            <option value="grains" <%= pantry.category === "grains" ? "selected" : "" %> >Grains</option>
+            <option value="baking" <%= pantry.category === "baking" ? "selected" : "" %> >Baking</option>
+            <option value="snack" <%= pantry.category === "snack" ? "selected" : "" %> >Snack</option>
+            <option value="beverage" <%= pantry.category === "beverage" ? "selected" : "" %> >Beverage</option>
+        </select>
+        <label for="quantity">Quantity: </label>
+        <input value="<%= pantry.quantity %>" type="text" name="quantity" id="quantity">
+
+        <button type="submit">Edit Item</button>
+    </form>
+</body>
+</html>
